@@ -7,8 +7,8 @@
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f7f9fc;
       color: #333;
       margin: 0;
       padding: 0;
@@ -17,25 +17,31 @@
       align-items: center;
       height: 100vh;
     }
+    .container {
+      text-align: center;
+      padding: 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 90%;
+      max-width: 900px;
+    }
     h2 {
-      font-size: 1.5em;
-      color: #555;
+      font-size: 2em;
+      color: #444;
       margin-bottom: 20px;
     }
     #chart_div {
-      width: 80%;
-      max-width: 800px;
-      height: 500px;
+      width: 100%;
+      height: 400px;
       background: #fff;
-      border: 1px solid #ddd;
       border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      padding: 20px;
+      overflow: hidden;
     }
   </style>
 </head>
 <body>
-  <div id="container">
+  <div class="container">
     <h2>Nombre de Commits par Minute</h2>
     <div id="chart_div"></div>
   </div>
@@ -58,9 +64,20 @@
           var options = {
             title: 'Nombre de Commits par Minute',
             legend: { position: 'none' },
-            hAxis: { title: 'Minute', titleTextStyle: { color: '#333' } },
-            vAxis: { title: 'Nombre de Commits', titleTextStyle: { color: '#333' } },
-            backgroundColor: '#fff'
+            hAxis: { 
+              title: 'Minute', 
+              titleTextStyle: { color: '#666' },
+              textStyle: { color: '#666' }
+            },
+            vAxis: { 
+              title: 'Nombre de Commits', 
+              titleTextStyle: { color: '#666' },
+              textStyle: { color: '#666' }
+            },
+            backgroundColor: '#fff',
+            colors: ['#4CAF50'],
+            bar: { groupWidth: '75%' },
+            animation: { startup: true, duration: 500, easing: 'inAndOut' }
           };
 
           var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
