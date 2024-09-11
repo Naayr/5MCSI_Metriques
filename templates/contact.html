@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contactez-nous - Maserati Style</title>
-    <!-- Lien vers la police Google (si nécessaire) -->
+    <!-- Lien vers la police Google -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         /* Styles généraux */
@@ -14,51 +14,88 @@
             color: #f4f4f4;
             margin: 0;
             padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
 
         /* Conteneur principal */
         .container {
+            width: 80%;
+            max-width: 900px;
+            background-color: #1a1a1a; /* Couleur sombre Maserati */
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5); /* Ombre subtile */
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Images de chaque côté */
+        .side-image {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 150px;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.9;
+        }
+
+        .side-image.left {
+            left: -150px;
+            background-image: url('https://www.maserati.com/mediaObject/sites/global/images/Models/MY22-MC20-Hero-EN/original/MY22-MC20-Hero-EN.jpg');
+        }
+
+        .side-image.right {
+            right: -150px;
+            background-image: url('https://www.maserati.com/mediaObject/sites/global/images/Models/MY22-Grecale-Hero/original/MY22-Grecale-Hero.jpg');
+        }
+
+        /* Contenu du formulaire */
+        .form-content {
+            margin: 0 auto;
             width: 100%;
             max-width: 600px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: #1a1a1a; /* Couleur sombre Maserati */
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Ombre subtile */
+            z-index: 1;
         }
 
         /* Titre principal */
         h1 {
             text-align: center;
             color: #0076a3; /* Bleu Maserati */
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             font-weight: 700;
+            font-size: 2.2em;
         }
 
         /* Styles pour le formulaire */
         form {
             display: flex;
             flex-direction: column;
+            gap: 20px;
         }
 
         label {
-            margin-bottom: 5px;
             font-size: 1.1em;
             color: #f4f4f4;
         }
 
         input[type="text"], textarea {
-            padding: 10px;
-            margin-bottom: 15px;
+            padding: 12px;
             border: 2px solid #0076a3; /* Bordure bleue Maserati */
             border-radius: 5px;
             background-color: #2d2d2d; /* Arrière-plan des champs */
             color: #f4f4f4;
             font-size: 1em;
+            transition: border-color 0.3s ease;
         }
 
-        input[type="text"]::placeholder, textarea::placeholder {
-            color: #bbb;
+        input[type="text"]:focus, textarea:focus {
+            border-color: #ff3f34; /* Rouge vif au focus */
+            outline: none;
         }
 
         textarea {
@@ -71,42 +108,71 @@
             background-color: #0076a3; /* Bleu Maserati */
             color: #fff;
             border: none;
-            padding: 12px;
-            font-size: 1.1em;
+            padding: 15px;
+            font-size: 1.2em;
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
 
         input[type="submit"]:hover {
-            background-color: #005f83; /* Plus sombre au survol */
+            background-color: #ff3f34; /* Rouge Maserati */
+        }
+
+        /* Animation de survol */
+        input[type="submit"]:hover {
+            box-shadow: 0 4px 15px rgba(255, 63, 52, 0.5); /* Ombre rouge au hover */
         }
 
         /* Pied de page */
         footer {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 40px;
             font-size: 0.9em;
             color: #ccc;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 800px) {
+            .container {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 20px;
+            }
+
+            .side-image {
+                display: none;
+            }
+
+            .form-content {
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>Contactez-nous</h1>
-        <form action="votre_script.php" method="POST">
-            <label for="nom">Nom :</label>
-            <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
+        <!-- Images sur les côtés -->
+        <div class="side-image left"></div>
+        <div class="side-image right"></div>
 
-            <label for="prenom">Prénom :</label>
-            <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required>
+        <!-- Contenu du formulaire -->
+        <div class="form-content">
+            <h1>Contactez-nous</h1>
+            <form action="votre_script.php" method="POST">
+                <label for="nom">Nom :</label>
+                <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
 
-            <label for="message">Message :</label>
-            <textarea id="message" name="message" placeholder="Votre message" required></textarea>
+                <label for="prenom">Prénom :</label>
+                <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required>
 
-            <input type="submit" value="Envoyer">
-        </form>
+                <label for="message">Message :</label>
+                <textarea id="message" name="message" placeholder="Votre message" required></textarea>
+
+                <input type="submit" value="Envoyer">
+            </form>
+        </div>
     </div>
 
     <footer>
