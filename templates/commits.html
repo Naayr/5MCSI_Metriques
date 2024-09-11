@@ -72,13 +72,27 @@
               textStyle: { color: '#666' }
             },
             backgroundColor: '#fff',
-            colors: ['#2196F3'],  // Couleur bleue
+            colors: ['#2196F3'],
             bar: { groupWidth: '50%' },  // Augmenter l'espacement entre les barres
-            animation: { startup: true, duration: 500, easing: 'inAndOut' }
+            animation: { startup: true, duration: 500, easing: 'inAndOut' },
+            chartArea: { left: 50, top: 20, width: '85%', height: '75%' }
           };
 
           var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+          
+          // Dessiner le graphique
           chart.draw(dataTable, options);
+
+          // Ajouter un léger effet de bord noir (simulé avec ombre)
+          var svg = document.querySelector('#chart_div svg');
+          if (svg) {
+            var bars = svg.querySelectorAll('rect');
+            bars.forEach(bar => {
+              bar.setAttribute('stroke', '#000');
+              bar.setAttribute('stroke-width', '1');
+              bar.setAttribute('stroke-opacity', '0.4');
+            });
+          }
         })
         .catch(error => console.error('Error fetching data:', error));
     }
