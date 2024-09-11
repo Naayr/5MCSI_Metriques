@@ -4,29 +4,107 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulaire de Contact</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #a2c2e7, #f0f8ff);
+            margin: 0;
+            position: relative;
+        }
+
+        /* Style pour l'image d'animation manga en arrière-plan */
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        /* Style pour le formulaire */
+        .form-container {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 350px;
+            text-align: center;
+            position: relative;
+        }
+
+        .form-container h2 {
+            margin-bottom: 20px;
+            color: #00274d;
+            font-size: 24px;
+        }
+
+        .form-container label {
+            display: block;
+            margin-bottom: 5px;
+            color: #003b5c;
+            font-size: 14px;
+        }
+
+        .form-container input[type="text"],
+        .form-container textarea {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: 1px solid #003b5c;
+            border-radius: 4px;
+            box-sizing: border-box;
+            background-color: #f0f8ff;
+            margin-bottom: 15px;
+        }
+
+        .form-container textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        .form-container input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #003b5c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .form-container input[type="submit"]:hover {
+            background-color: #00274d;
+        }
+    </style>
 </head>
-<body style="font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f0f2f5; margin: 0; position: relative;">
+<body>
 
     <!-- Image d'animation manga en arrière-plan -->
-    <img src="https://www.v12-gt.com/var/v12gt/storage/images/les-plus-belles-photos-de-gt-et-de-classic/photos-gt/maserati/maserati-granturismo-sport-bleu-3-4-avant-gauche/179023-1-fre-FR/Maserati-GranTurismo-Sport-bleu-3-4-avant-gauche_zoom.jpg" alt="Animation Manga" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
+    <img src="https://www.v12-gt.com/var/v12gt/storage/images/les-plus-belles-photos-de-gt-et-de-classic/photos-gt/maserati/maserati-granturismo-sport-bleu-3-4-avant-gauche/179023-1-fre-FR/Maserati-GranTurismo-Sport-bleu-3-4-avant-gauche_zoom.jpg" alt="Animation Manga" class="background-image">
 
-    <div style="background: rgba(255, 255, 255, 0.9); border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 20px; width: 350px; text-align: center; position: relative;">
-        <h2 style="margin-bottom: 20px; color: #00274d; font-size: 24px;">Contactez-nous</h2>
+    <div class="form-container">
+        <h2>Contactez-nous</h2>
         <form action="#" method="post">
-            <div style="margin-bottom: 15px; text-align: left;">
-                <label for="first-name" style="display: block; margin-bottom: 5px; color: #003b5c; font-size: 14px;">Prénom</label>
-                <input type="text" id="first-name" name="first-name" required style="width: calc(100% - 22px); padding: 10px; border: 1px solid black; border-radius: 4px; box-sizing: border-box; background-color: #f0f8ff;">
+            <div>
+                <label for="first-name">Prénom</label>
+                <input type="text" id="first-name" name="first-name" required>
             </div>
-            <div style="margin-bottom: 15px; text-align: left;">
-                <label for="last-name" style="display: block; margin-bottom: 5px; color: #003b5c; font-size: 14px;">Nom</label>
-                <input type="text" id="last-name" name="last-name" required style="width: calc(100% - 22px); padding: 10px; border: 1px solid black; border-radius: 4px; box-sizing: border-box; background-color: #f0f8ff;">
+            <div>
+                <label for="last-name">Nom</label>
+                <input type="text" id="last-name" name="last-name" required>
             </div>
-            <div style="margin-bottom: 15px; text-align: left;">
-                <label for="message" style="display: block; margin-bottom: 5px; color: #003b5c; font-size: 14px;">Message</label>
-                <textarea id="message" name="message" required style="width: calc(100% - 22px); padding: 10px; border: 1px solid black; border-radius: 4px; box-sizing: border-box; height: 100px; resize: vertical; background-color: #f0f8ff;"></textarea>
+            <div>
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required></textarea>
             </div>
-            <div style="margin-bottom: 15px;">
-                <input type="submit" value="Envoyer" style="padding: 10px 20px; background-color: #003b5c; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;">
+            <div>
+                <input type="submit" value="Envoyer">
             </div>
         </form>
     </div>
