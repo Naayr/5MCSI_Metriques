@@ -48,9 +48,12 @@
         .then(response => response.json())
         .then(data => {
           var dataTable = new google.visualization.DataTable();
-          dataTable.addColumn('string', 'Minute');
+          dataTable.addColumn('string', 'Date');
           dataTable.addColumn('number', 'Nombre de Commits');
           
+          // Trier les données par date pour assurer un ordre chronologique
+          data.results.sort((a, b) => new Date(a.minute) - new Date(b.minute));
+
           data.results.forEach(entry => {
             dataTable.addRow([entry.minute, entry.count]);
           });
@@ -59,18 +62,18 @@
             title: 'Nombre de Commits par Minute',
             legend: { position: 'none' },
             hAxis: { 
-              title: 'Minute', 
-              titleTextStyle: { color: '#666' },
-              textStyle: { color: '#666' }
-            },
-            vAxis: { 
               title: 'Date', 
               titleTextStyle: { color: '#666' },
               textStyle: { color: '#666' }
             },
+            vAxis: { 
+              title: 'Nombre de Commits', 
+              titleTextStyle: { color: '#666' },
+              textStyle: { color: '#666' }
+            },
             backgroundColor: '#fff',
-            colors: ['#4CAF50'],
-            bar: { groupWidth: '75%' },
+            colors: ['#2196F3'],  // Couleur bleue
+            bar: { groupWidth: '50%' },  // Augmenter l'espacement entre les barres
             animation: { startup: true, duration: 500, easing: 'inAndOut' }
           };
 
