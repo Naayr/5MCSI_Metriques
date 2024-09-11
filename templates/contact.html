@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contactez-nous - Maserati Style</title>
+    <!-- Lien vers la police Google (si nécessaire) -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Styles généraux */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #1f1f1f; /* Fond sombre élégant */
+            color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Conteneur principal */
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #1a1a1a; /* Couleur sombre Maserati */
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Ombre subtile */
+        }
+
+        /* Titre principal */
+        h1 {
+            text-align: center;
+            color: #0076a3; /* Bleu Maserati */
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        /* Styles pour le formulaire */
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 5px;
+            font-size: 1.1em;
+            color: #f4f4f4;
+        }
+
+        input[type="text"], textarea {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 2px solid #0076a3; /* Bordure bleue Maserati */
+            border-radius: 5px;
+            background-color: #2d2d2d; /* Arrière-plan des champs */
+            color: #f4f4f4;
+            font-size: 1em;
+        }
+
+        input[type="text"]::placeholder, textarea::placeholder {
+            color: #bbb;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        /* Bouton de soumission */
+        input[type="submit"] {
+            background-color: #0076a3; /* Bleu Maserati */
+            color: #fff;
+            border: none;
+            padding: 12px;
+            font-size: 1.1em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #005f83; /* Plus sombre au survol */
+        }
+
+        /* Pied de page */
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Contactez-nous</h1>
+        <form action="votre_script.php" method="POST">
+            <label for="nom">Nom :</label>
+            <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
+
+            <label for="prenom">Prénom :</label>
+            <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required>
+
+            <label for="message">Message :</label>
+            <textarea id="message" name="message" placeholder="Votre message" required></textarea>
+
+            <input type="submit" value="Envoyer">
+        </form>
+    </div>
+
+    <footer>
+        &copy; 2024 Maserati Style. Tous droits réservés.
+    </footer>
+
+</body>
+</html>
